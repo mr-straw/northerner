@@ -1,0 +1,205 @@
+<%
+    # RNB, A VIM COLORSCHEME TEMPLATE
+    # Author: Straw, based on Romain Lafourcade (https://github.com/romainl)
+    # Step 1: Information
+
+    information = {
+        author:      "lutin",
+        email:       "",
+        name:        "northerner",
+        description: "influenced by articice studio's nord colors, using Romain Lafoucard's template",
+        background:  "dark",
+        webpage:     "https://github.com/daftwooly"
+    }
+    # Step 2: colors
+    #
+    # black = [       give each color a distinctive name
+    #   "#000000",    hexadecimal color for GVim/MacVim and "true colors" terminals
+    #   0,            integer between 0 and 255 for terminals supporting 256 colors
+    #   "black"       color name for less capable color terminals, can be "darkred", "red",
+    #                 "darkgreen", "green", "darkyellow", "yellow", "darkblue", "blue",
+    #                 "darkmagenta", "magenta", "black", "darkgrey", "grey", "white"
+    # ]
+
+    bg  = ["#30353c", "NONE", "NONE"]
+    fg  = ["#bbbfc8", "NONE", "NONE"]
+    c0  = ["#3e424b", 0, "black"]
+    c1  = ["#a26066", 1, "darkred"]
+    c2  = ["#7fa06b", 2, "darkgreen"]
+    c3  = ["#ebcb8b", 3, "darkyellow"]
+    c4  = ["#7f9cba", 4, "darkblue"]
+    c5  = ["#b48ead", 5, "darkmagenta"]
+    c6  = ["#94bcbc", 6, "darkcyan"]
+    c7  = ["#c8ccd1", 7, "gray"]
+    c8  = ["#5f6a7f", 8, "darkgray"]
+    c9  = ["#d8838c", 9, "red"]
+    c10 = ["#a3be8c", 10, "green"]
+    c11 = ["#dfd187", 11, "yellow"]
+    c12 = ["#7fb6e3", 12, "blue"]
+    c13 = ["#e38ed3", 13, "magenta"]
+    c14 = ["#92e3e3", 14, "cyan"]
+    c15 = ["#e5e9f0", 15, "white"]
+    # Step 3: highlights
+    #
+    # You can define highlight groups like this:
+    #
+    #   [ "Normal",       name of the highlight group
+    #     white,          the color used for background color, or use "NONE", "fg" or "bg"
+    #     darkgray,       the color used for foreground color, or use "NONE", "fg" or "bg"
+    #     "NONE"          style, can be "bold", "underline", "reverse", "italic",
+    #                     "standout", "NONE" or "undercurl"
+    #   ]
+    #
+    #
+    # link an highlight group to another:
+    #
+    #   [ "Title", "Normal" ]
+    #
+    # In GUI Vim, there is an additional color for the undercurl used to
+    # highlight spelling mistakes:
+    #
+    #   [ "SpellBad",     name of the highlight group
+    #     "NONE",         the color used for background color, or use "NONE", "fg" or "bg"
+    #     red,            the color used for foreground color, or use "NONE", "fg" or "bg"
+    #     "undercurl",    style
+    #     red             color used for the undercurl
+    #   ]
+    highlights = [
+        [ "Normal",bg, fg, "NONE" ],
+        [ "NonText", bg, c8, "NONE" ],
+        [ "Comment", bg, c8, "NONE" ],
+        [ "Constant", bg, c3, "NONE" ],
+        [ "Error", c9, c15, "NONE" ],
+        [ "Function", bg, c5, "NONE" ],
+        [ "Identifier", bg, c10, "NONE" ],
+        [ "Ignore", bg, c0, "NONE" ],
+        [ "PreProc", bg, c4, "NONE" ],
+        [ "Special", bg, c12, "NONE" ],
+        [ "Statement", bg, c4, "NONE" ],
+        [ "String", bg, c10, "NONE" ],
+        [ "Number", bg, c5, "NONE" ],
+        [ "Todo", c10, c0, "NONE" ],
+        [ "Type", bg, c4, "NONE" ],
+        [ "Underlined", bg, fg, "NONE" ],
+        [ "StatusLine", c4, c0, "NONE" ],
+        [ "StatusLineNC", c0, c4, "NONE" ],
+        [ "VertSplit", bg, c8, "NONE" ],
+        [ "TabLine", c0, c8, "NONE" ],
+        [ "TabLineFill", c0, c8, "NONE" ],
+        [ "TabLineSel", bg, c10, "NONE" ],
+        [ "Title", bg, c4, "NONE" ],
+        [ "CursorLine", c0, "NONE", "NONE" ],
+        [ "LineNr", bg, c8, "NONE" ],
+        [ "CursorLineNr", c0, fg, "NONE" ],
+        [ "helpLeadBlank", "NONE", "NONE", "NONE" ],
+        [ "helpNormal", "NONE", "NONE", "NONE" ],
+        [ "Visual", c0, c4, "NONE" ],
+        [ "VisualNOS", bg, fg, "underline" ],
+        [ "Pmenu", c0, fg, "NONE" ],
+        [ "PmenuSbar", c0, fg, "NONE" ],
+        [ "PmenuSel", c8, c6, "NONE" ],
+        [ "PmenuThumb", c8, fg, "NONE" ],
+        [ "FoldColumn", bg, c0, "NONE" ],
+        [ "Folded", bg, c0, "NONE" ],
+        [ "WildMenu", c10, c0, "NONE" ],
+        [ "SpecialKey", bg, c8, "NONE" ],
+        [ "DiffAdd", bg, c10, "NONE" ],
+        [ "DiffChange", bg, c3, "NONE" ],
+        [ "DiffDelete", bg, c1, "NONE" ],
+        [ "DiffText", bg, c8, "NONE" ],
+        [ "IncSearch", c9, c0, "NONE" ],
+        [ "Search", c3, c0, "NONE" ],
+        [ "Directory", bg, c6, "NONE" ],
+        [ "MatchParen", c4, c0, "NONE" ],
+        [ "SpellBad", bg, c1, "undercurl", "NONE" ],
+        [ "SpellCap", bg, c5, "undercurl", "NONE" ],
+        [ "SpellLocal", bg, c5, "undercurl", "NONE" ],
+        [ "SpellRare", bg, c5, "undercurl", "NONE" ],
+        [ "ColorColumn", c0, fg, "NONE" ],
+        [ "signColumn", bg, c0, "NONE" ],
+        [ "ErrorMsg", c1, fg, "NONE" ],
+        [ "ModeMsg", c10, c0, "NONE" ],
+        [ "MoreMsg", c10, c0, "NONE" ],
+        [ "Question", bg, fg, "NONE" ],
+        [ "WarningMsg", c0, c11, "NONE" ],
+        [ "Cursor", fg, bg, "NONE" ],
+        [ "CursorColumn", c0, fg, "NONE" ]
+    ]
+    # Step 4: generation
+    #
+    # From Vim:
+    #     :!erb -T - % > %:r.vim
+-%>
+" <%= information[:name] %>.vim -- Vim color scheme.
+" Author:      <%= information[:author] %> (<%= information[:email] %>)
+" Webpage:     <%= information[:webpage] %>
+" Description: <%= information[:description] %>
+
+hi clear
+
+if exists("syntax_on")
+  syntax reset
+endif
+
+let colors_name = "<%= information[:name] %>"
+
+<% for highlight in highlights -%>
+<% if highlight.length == 2 -%>
+    hi link <%= highlight[0] %> <%= highlight[1] %>
+<% elsif highlight.length == 4 -%>
+    hi <%= highlight[0] %> ctermbg=<%= highlight[1].kind_of?(String) ? highlight[1] : highlight[1][1] %> ctermfg=<%= highlight[2].kind_of?(String) ? highlight[2] : highlight[2][1] %> cterm=<%= highlight[3] %> guibg=<%= highlight[1].kind_of?(String) ? highlight[1] : highlight[1][0] %> guifg=<%= highlight[2].kind_of?(String) ? highlight[2] : highlight[2][0] %> gui=<%= highlight[3] %>
+<% if highlight[0] == "Normal" -%>
+    set background=<%= information[:background] %>
+<% end -%>
+<% else -%>
+    hi <%= highlight[0] %> ctermbg=<%= highlight[1].kind_of?(String) ? highlight[1] : highlight[1][1] %> ctermfg=<%= highlight[2].kind_of?(String) ? highlight[2] : highlight[2][1] %> cterm=<%= highlight[3] %> guibg=<%= highlight[1].kind_of?(String) ? highlight[1] : highlight[1][0] %> guifg=<%= highlight[2].kind_of?(String) ? highlight[2] : highlight[2][0] %> gui=<%= highlight[3] %> guisp=<%= highlight[4].kind_of?(String) ? highlight[4] : highlight[4][0] %>
+<% end -%>
+<% end -%>
+
+hi link Boolean                  Constant
+hi link Character                Constant
+hi link Conditional              Statement
+hi link Debug                    Special
+hi link Define                   PreProc
+hi link Delimiter                Special
+hi link Exception                Statement
+hi link Float                    Number
+hi link HelpCommand              Statement
+hi link HelpExample              Statement
+hi link Include                  PreProc
+hi link Keyword                  Statement
+hi link Label                    Statement
+hi link Macro                    PreProc
+hi link Number                   Constant
+hi link Operator                 Statement
+hi link PreCondit                PreProc
+hi link Repeat                   Statement
+hi link SpecialChar              Special
+hi link SpecialComment           Special
+hi link StorageClass             Type
+hi link Structure                Type
+hi link Tag                      Special
+hi link Typedef                  Type
+
+hi link htmlEndTag               htmlTagName
+hi link htmlLink                 Function
+hi link htmlSpecialTagName       htmlTagName
+hi link htmlTag                  htmlTagName
+hi link htmlBold                 Normal
+hi link htmlItalic               Normal
+hi link xmlTag                   Statement
+hi link xmlTagName               Statement
+hi link xmlEndTag                Statement
+
+hi link markdownItalic           Number
+hi link asciidocQuotedEmphasized Preproc
+
+hi link diffBDiffer              WarningMsg
+hi link diffCommon               WarningMsg
+hi link diffDiffer               WarningMsg
+hi link diffIdentical            WarningMsg
+hi link diffIsA                  WarningMsg
+hi link diffNoEOL                WarningMsg
+hi link diffOnly                 WarningMsg
+hi link diffRemoved              WarningMsg
+hi link diffAdded                String
